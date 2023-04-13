@@ -1,0 +1,12 @@
+fileFormatVersion: 2
+guid: 5b323db3e0e21a545afb6e8fc458e6a0
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - roidPrefab: {fileID: 3831920639007417891, guid: 8b9ecf288562e88499f2f1f0ccabb0a9, type: 3}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
