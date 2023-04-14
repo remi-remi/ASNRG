@@ -17,6 +17,9 @@ public class GameManager : MonoBehaviour
     // Ajoutez une référence publique à l'AudioSource
     public AudioSource backgroundMusic;
 
+    private AudioSource airwolf2;
+    private AudioSource gameOver;
+
     private void Awake()
     {
         if (Instance == null)   // singleton instance
@@ -29,6 +32,9 @@ public class GameManager : MonoBehaviour
         }
 
         CurrentState = GameState.Playing;
+        AudioSource[] audioSources = GetComponents<AudioSource>();
+        airwolf2 = audioSources[0];
+        gameOver = audioSources[1];
     }
 
     void Update()
@@ -70,6 +76,7 @@ public class GameManager : MonoBehaviour
 
             // Arrêtez la musique en cas de Game Over
             backgroundMusic.Stop();
+            gameOver.Play();
         }
     }
 }

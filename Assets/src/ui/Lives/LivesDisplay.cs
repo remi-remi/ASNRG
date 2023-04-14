@@ -14,6 +14,7 @@ public class LivesDisplay : MonoBehaviour
     private List<Image> lifeIcons = new List<Image>();
     private AudioSource damageSound;
     private AudioSource endSound;
+    public float endSoundVolume = 0.5f;
 
     private void Start()
     {
@@ -21,6 +22,7 @@ public class LivesDisplay : MonoBehaviour
         AudioSource[] audioSources = GetComponents<AudioSource>();
         damageSound = audioSources[0];
         endSound = audioSources[1];
+        endSound.volume = endSoundVolume;
     }
 
     public void UpdateLivesDisplay()

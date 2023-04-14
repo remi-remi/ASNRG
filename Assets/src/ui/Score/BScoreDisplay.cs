@@ -33,10 +33,11 @@ public class BScoreDisplay : MonoBehaviour
     private void GameOver()
     {
         // Comparez le score actuel au meilleur score et mettez à jour si nécessaire
-        float currentScore = scoreManager.GetCurrentScore(); // Remplacez cette ligne par la méthode qui retourne le score actuel dans votre script de gestion des scores
+        float currentScore = scoreManager.GetCurrentScore();
         if (currentScore > bestScore)
         {
-            SaveBestScore(currentScore);
+            DisplayBestScore();
+            SaveBestScore(Mathf.RoundToInt(currentScore));
         }
     }
 
@@ -50,6 +51,7 @@ public class BScoreDisplay : MonoBehaviour
     public void LoadBestScore()
     {
         bestScore = PlayerPrefs.GetInt("BestScore", 0);
+        //bestScore = 3; // DEBUG
         DisplayBestScore();
     }
 
