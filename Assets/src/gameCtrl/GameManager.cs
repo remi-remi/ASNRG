@@ -1,10 +1,16 @@
 using System;
 using UnityEngine;
+using System.Collections;
 
 public class GameManager : MonoBehaviour
 {
     public static GameManager Instance;
-
+    public GameState CurrentState;
+    public AudioSource backgroundMusic;
+    private AudioSource airwolf2;
+    private AudioSource gameOver;
+    public RoidManager roidManager;
+    public bool phaseRunning;
     public enum GameState
     {
         Playing,
@@ -12,13 +18,18 @@ public class GameManager : MonoBehaviour
         GameOver
     }
 
-    public GameState CurrentState;
+    public enum ActualSpell // sort en cour
+    {
+        Spell1,
+        Spell2,
+        Spell3
+    }
 
-    // Ajoutez une référence publique à l'AudioSource
-    public AudioSource backgroundMusic;
-
-    private AudioSource airwolf2;
-    private AudioSource gameOver;
+    public enum ActualPhase // phase du jeu en cour
+    {
+        Asteroid,
+        BossFriz
+    }
 
     private void Awake()
     {
@@ -35,6 +46,9 @@ public class GameManager : MonoBehaviour
         AudioSource[] audioSources = GetComponents<AudioSource>();
         airwolf2 = audioSources[0];
         gameOver = audioSources[1];
+        StartGame();
+
+
     }
 
     void Update()
@@ -79,4 +93,29 @@ public class GameManager : MonoBehaviour
             gameOver.Play();
         }
     }
+
+    public void StartGame()
+    {
+     roidManager.spawnEnabled = true;
+     StartCoroutine(RunPhases());
+    }
+
+    public void gamble()
+    {
+        Debug.Log("GAMBLE !");
+    }
+
+    private IEnumerator RunPhases()
+    {
+        while (CurrentState == GameState.Playing)
+        {
+            // Attendez que phaseRunning devienne false
+            phaseRunning = true;
+            yield return new WaitUntil(() => !phaseRunning);
+
+            // Lancez la prochaine phase ici
+            // ...
+        }
+    }
+
 }

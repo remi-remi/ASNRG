@@ -5,6 +5,7 @@ using UnityEngine;
 public class RoidManager : MonoBehaviour
 {
     public GameObject roidPrefab;
+    public GameManager gameManager;
     public float spawnRate = 5.0f;
     public float minX = -6.0f;
     public float maxX = 6.0f;
@@ -13,8 +14,10 @@ public class RoidManager : MonoBehaviour
     public int totalRoid = 0;
     public Sprite[] roidSprites;
 
+
     private float timeSinceLastSpawn;
     private bool isGameOver = false;
+    public bool spawnEnabled = false;
 
     private void Awake()
     {
@@ -33,6 +36,7 @@ public class RoidManager : MonoBehaviour
 
     private void Update()
     {
+        if (!spawnEnabled) return;
         if (isGameOver) return;
 
         timeSinceLastSpawn += Time.deltaTime;
@@ -43,6 +47,7 @@ public class RoidManager : MonoBehaviour
             timeSinceLastSpawn = 0f;
             totalRoid++;
         }
+        gameManager.phaseRunning = false;
     }
 
     private void SpawnRoid()
