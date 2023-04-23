@@ -4,17 +4,17 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
-public class ButtonMenu1Action : MonoBehaviour
+public class MainMenu : MonoBehaviour
 {
     public Button buttonStart, buttonOption, buttonSkin;
+    public MenuManager menuManager;
     // Start is called before the first frame update
     void Start()
     {
         Debug.Log("start");
         buttonStart.onClick.AddListener(buttonStartAction);
-        buttonOption.onClick.AddListener(buttonOptionAction);
-        buttonSkin.onClick.AddListener(buttonSkinAction);
-
+        buttonOption.onClick.AddListener(menuManager.OpenOptionsMenu);
+        buttonSkin.onClick.AddListener(menuManager.OpenSkinMenu);
     }
 
     // Update is called once per frame
@@ -30,17 +30,5 @@ public class ButtonMenu1Action : MonoBehaviour
     {
         SceneManager.LoadScene("SceneGame");
     }
-
-        public void buttonOptionAction()
-    {
-
-    }
-
-        public void buttonSkinAction()
-    {
-
-    }
-
-
 
 }
