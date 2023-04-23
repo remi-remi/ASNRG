@@ -72,9 +72,6 @@ public class MoveNoControler : MonoBehaviour
         spriteRenderer.color = color;
     }
 
-
-
-
 // GAME OVER
     private void OnEnable()
     {

@@ -305,7 +305,7 @@ MonoBehaviour:
   maxRoid: 100
   totalRoid: 0
   roidSprites: []
-  spawnEnabled: 1
+  spawnEnabled: 0
 --- !u!1 &360017570
 GameObject:
   m_ObjectHideFlags: 0
@@ -688,6 +688,7 @@ MonoBehaviour:
   CurrentState: 0
   backgroundMusic: {fileID: 855326282}
   roidManager: {fileID: 200954270}
+  startDisplay: {fileID: 1287234990}
   phaseRunning: 0
 --- !u!82 &855326282
 AudioSource:
@@ -1499,7 +1500,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!212 &1713249664
 SpriteRenderer:
   m_ObjectHideFlags: 0

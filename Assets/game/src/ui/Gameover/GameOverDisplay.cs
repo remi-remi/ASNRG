@@ -30,3 +30,5 @@ public class GameOverDisplay : MonoBehaviour
         gameOverTxt.SetActive(true);
     }
 }
+
+

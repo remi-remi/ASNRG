@@ -11,7 +11,7 @@ public class StarManager : MonoBehaviour
     public float minX = -8.0f;
     public float maxX = 8.0f;
 
-    void Start()
+    public void startDisplay()
     {
         for (int i = 0; i < numberOfStars; i++)
         {

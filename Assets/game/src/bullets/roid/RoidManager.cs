@@ -17,7 +17,7 @@ public class RoidManager : MonoBehaviour
 
     private float timeSinceLastSpawn;
     private bool isGameOver = false;
-    public bool spawnEnabled = false;
+    public bool spawnEnabled;
 
     private void Awake()
     {

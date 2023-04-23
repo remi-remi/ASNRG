@@ -10,6 +10,7 @@ public class GameManager : MonoBehaviour
     private AudioSource airwolf2;
     private AudioSource gameOver;
     public RoidManager roidManager;
+    public StarManager startDisplay;
     public bool phaseRunning;
     public enum GameState
     {
@@ -46,7 +47,8 @@ public class GameManager : MonoBehaviour
         AudioSource[] audioSources = GetComponents<AudioSource>();
         airwolf2 = audioSources[0];
         gameOver = audioSources[1];
-        StartGame();
+
+        StartGame();                                                  // lancement du jeu
 
 
     }
@@ -94,10 +96,12 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    public void StartGame()
+    public void StartGame()                         // launch the game !
     {
-     roidManager.spawnEnabled = true;
-     StartCoroutine(RunPhases());
+        Debug.Log("StartGame()");
+        startDisplay.startDisplay();
+        roidManager.spawnEnabled = true;
+        StartCoroutine(RunPhases());
     }
 
     public void gamble()
@@ -112,9 +116,6 @@ public class GameManager : MonoBehaviour
             // Attendez que phaseRunning devienne false
             phaseRunning = true;
             yield return new WaitUntil(() => !phaseRunning);
-
-            // Lancez la prochaine phase ici
-            // ...
         }
     }
 
