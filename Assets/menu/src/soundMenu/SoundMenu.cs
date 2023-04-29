@@ -10,7 +10,7 @@ public class OptionMenu : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        buttonExitOption.onClick.AddListener(menuManager.CloseOptionsMenu);
+        buttonExitOption.onClick.AddListener(menuManager.CloseSoundOptionsMenu);
     }
 
     // Update is called once per frame

@@ -24,7 +24,7 @@ public class MenuManager : MonoBehaviour
         optionsMenu.SetActive(true);
     }
 
-    public void CloseOptionsMenu()
+    public void CloseSoundOptionsMenu()
     {
         isOptionsMenuOpen = false;
         mainMenu.SetActive(true);
